@@ -32,7 +32,9 @@ public class Main {
     }
 	
 	private void menuPrincipal() {
-		
+		try{
+                    
+                
 		int ingreso;
 		Scanner sc = new Scanner(System.in);
 		do {
@@ -54,7 +56,10 @@ public class Main {
 			
 		} while (!(ingreso == 2));
 		sc.close();
-		
+		}catch(Exception ex){
+                    System.out.println("Entrada invalida, selecciona una de las opciones!");
+                    menuPrincipal();
+                }
 		
 	}
 	
@@ -63,19 +68,27 @@ public class Main {
 		System.out.println("Hola, a donde te dirijes?");
 		Scanner sc = new Scanner(System.in);
 		String destino = sc.nextLine();
-		
-		System.out.println("Cuantas personas viajan?");
-		try{
-			int personas = sc.nextInt();
-		
+		int personas=1; //default para el while
+            try{
+                
+                do{
+                    System.out.println("Cuantas personas viajan?");
+                    personas = sc.nextInt();
+                    sc.nextLine();
+                }while(personas<1);
 		
 		if (!validarPasajeros(personas)) {
 			total = -1;
 		}
-		sc.nextLine();
-		System.out.println("Cuantos dias viajaran?");
-		int duracion = sc.nextInt();
-		sc.nextLine();
+                
+                int duracion=1;
+                
+                do{
+                    System.out.println("Cuantos dias viajaran?");
+                    duracion = sc.nextInt();
+                    sc.nextLine();
+                }while(duracion<1);
+		
 		
 		System.out.println("Entonces, viajaras a " + destino + " con " + personas+ " personas " + " durante " + duracion + " dias");
 		String confirmacion = "";
