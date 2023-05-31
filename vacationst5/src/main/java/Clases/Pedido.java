@@ -5,6 +5,13 @@ public class Pedido {
     private String destination;
     private int vacDays;
     private double total=1000;
+    
+    public Pedido(String destino, int numtravelers, int vacdays) {
+    	this.numTravelers = numtravelers;
+    	this.destination = destino;
+    	this.vacDays = vacdays;
+    	this.total = 1000;
+    }
 
     public int getNumTravelers() {
         return numTravelers;
@@ -22,7 +29,7 @@ public class Pedido {
         this.numTravelers = numTravelers;
     }
 
-    public void setDestination(pais destination) {
+    public void setDestination(String destination) {
         this.destination = destination;
     }
 

@@ -2,7 +2,7 @@ package vacationst5;
 
 import Clases.*;
 import java.util.*;
-
+import java.io.IOException;
 public class Main {
 	
 	private ArrayList<CiudadPopular> ciudadesPopulares;
@@ -65,15 +65,45 @@ public class Main {
 		String destino = sc.nextLine();
 		
 		System.out.println("Cuantas personas viajan?");
+		try{
+			int personas = sc.nextInt();
 		
-		int personas = sc.nextInt();
+		
 		if (!validarPasajeros(personas)) {
 			total = -1;
 		}
 		sc.nextLine();
-		System.out.println("Cuanto tiempo viajaran?");
+		System.out.println("Cuantos dias viajaran?");
 		int duracion = sc.nextInt();
 		sc.nextLine();
+		
+		System.out.println("Entonces, viajaras a " + destino + " con " + personas+ " personas " + " durante " + duracion + " dias");
+		String confirmacion = "";
+		do {
+		System.out.println("Desea calcular con estos datos?S/N");
+		
+		confirmacion = sc.nextLine();
+		}while (!(confirmacion.equals("S") || confirmacion.equals("N")));
+		
+		
+		if(confirmacion.equals("S")) {
+			Pedido p = new Pedido(destino,personas,duracion);
+			isPopular(p,p.getDestination(),getCiudadesPopulares());
+			p.applyDiscount(p);
+			System.out.println("Total por viaje es: " + p.getTotal());
+			
+			
+			
+		}
+		else {
+			menuViajes();
+		}
+		
+		}
+		catch(Exception ex) {
+			System.out.println("Error de ingreso, por favor ingresa solo numeros");
+			menuViajes();
+		}
 		
 		
 		
