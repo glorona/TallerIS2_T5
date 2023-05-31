@@ -1,11 +1,32 @@
 package vacationst5;
 
+import Clases.*;
 import java.util.*;
 
 public class Main {
 	
+	private ArrayList<CiudadPopular> ciudadesPopulares;
+	
+	
+	public Main() {
+		CiudadPopular Paris = new CiudadPopular("Paris",500);
+	    CiudadPopular NY = new CiudadPopular("New York City",600);
+	    CiudadPopular Tokyo = new CiudadPopular("Tokyo",500);
+	    CiudadPopular Barcelona = new CiudadPopular("Barcelona",700);
+	    ciudadesPopulares = new ArrayList<CiudadPopular>();
+	    ciudadesPopulares.add(NY);
+	    ciudadesPopulares.add(Paris);
+	    ciudadesPopulares.add(Tokyo);
+	    ciudadesPopulares.add(Barcelona);
+	}
+	
+	public ArrayList<CiudadPopular> getCiudadesPopulares() {
+		return ciudadesPopulares;
+	}
+	
+
+	
 	public static void main(String[] args) {
-        System.out.println("Hello World!");
         Main m1 = new Main();
         m1.menuPrincipal();
     }
@@ -65,6 +86,15 @@ public class Main {
 		}
 		return true;
 	}
+	
+	public static void isPopular(Pedido pedido,String destination, ArrayList<CiudadPopular> ciudadesPopulares){
+        for(CiudadPopular cp:ciudadesPopulares){
+            if(cp.nombre.equalsIgnoreCase(destination)){
+                pedido.setTotal(pedido.getTotal()+cp.valor);
+            }
+        }
+            
+    }
     
 
 }
