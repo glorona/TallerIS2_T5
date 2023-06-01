@@ -1,3 +1,5 @@
+
+
 package vacationst5;
 
 import Clases.*;
@@ -9,6 +11,7 @@ public class Main {
 	
 	
 	public Main() {
+		
 		CiudadPopular Paris = new CiudadPopular("Paris",500);
 	    CiudadPopular NY = new CiudadPopular("New York City",600);
 	    CiudadPopular Tokyo = new CiudadPopular("Tokyo",500);
@@ -25,16 +28,16 @@ public class Main {
 	}
 	
 
-	
+//CHECKSTYLE:OFF
 	public static void main(String[] args) {
         Main m1 = new Main();
         m1.menuPrincipal();
     }
+//CHECKSTYLE:ON
 	
 	private void menuPrincipal() {
 		try{
-                    
-                
+                              
 		int ingreso;
 		Scanner sc = new Scanner(System.in);
 		do {

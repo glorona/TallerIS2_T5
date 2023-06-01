@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE module PUBLIC "-//Checkstyle//DTD Checkstyle Configuration 1.3//EN" "https://checkstyle.org/dtds/configuration_1_3.dtd">
+
+<!--
+    This configuration file was written by the eclipse-cs plugin configuration editor
+-->
+<!--
+    Checkstyle-Configuration: grupoT5Checks
+    Description: 
+Checks for vacations5 project
+-->
+<module name="Checker">
+  <module name="Header">
+    <property name="header" value="// Copyright (C) 2023\n// All rights reserved"/>
+  </module>
+  <property name="severity" value="warning"/>
+  <module name="TreeWalker">
+    <module name="MissingJavadocMethod"/>
+    <module name="Indentation"/>
+    <module name="SuppressionCommentFilter"/>
+    <module name="JavadocMethod">
+      <property name="tokens" value="METHOD_DEF,CTOR_DEF"/>
+    </module>
+    <module name="MethodName">
+      <property name="format" value="^[a-z][a-zA-Z0-9|_]*$"/>
+    </module>
+    <module name="WhitespaceAfter"/>
+    <module name="RightCurly">
+      <property name="tokens" value="LITERAL_TRY,LITERAL_CATCH,LITERAL_FINALLY,LITERAL_IF,LITERAL_ELSE,LITERAL_FOR,LITERAL_WHILE,LITERAL_DO"/>
+    </module>
+    <module name="LocalVariableName">
+      <property name="format" value="^[a-z][a-zA-Z0-9]+$"/>
+      <property name="allowOneCharVarInForLoop" value="true"/>
+    </module>
+  </module>
+  <module name="LineLength">
+    <property name="max" value="75"/>
+  </module>
+</module>
