@@ -24,11 +24,16 @@
 	<reporting>
 		 <plugins>
 			 <plugin>
-				 <artifactId>maven-checkstyle-plugin</artifactId>
-					<configuration>
-					 	<configLocation>grupoT5_checks.xml</configLocation>
-					</configuration>
-			</plugin>
+ 	<groupId>org.apache.maven.plugins</groupId>
+ 		<artifactId>maven-pmd-plugin</artifactId>
+ 			<version>3.13.0</version>
+ 				<configuration>
+ 				<rulesets>
+ 			<ruleset>grupoT5_ruleset.xml</ruleset>
+		</rulesets>
+ 		</configuration>
+	</plugin>
+
 		 </plugins>
 	</reporting>
 
