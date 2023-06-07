@@ -16,5 +16,6 @@ https://pmd.sourceforge.io/ruleset_2_0_0.xsd">
 <rule ref="category/java/codestyle.xml/UseDiamondOperator" />
 <rule ref="category/java/design.xml/AvoidCatchingGenericException" />
 
+
  
 </ruleset>

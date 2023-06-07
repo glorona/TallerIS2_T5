@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd"
+    version="6.21.0" timestamp="2023-06-07T18:31:06.901">
+<file name="C:\Users\LENOVO\Downloads\TallerIS2_T5\vacationst5\src\main\java\Clases\CiudadPopular.java">
+<violation beginline="6" endline="56" begincolumn="8" endcolumn="1" rule="DataClass" ruleset="Design" package="Clases" class="CiudadPopular" externalInfoUrl="https://pmd.github.io/pmd-6.21.0/pmd_rules_java_design.html#dataclass" priority="3">
+The class 'CiudadPopular' is suspected to be a Data Class (WOC=16.667%, NOPA=2, NOAM=4, WMC=5)
+</violation>
+</file>
+<file name="C:\Users\LENOVO\Downloads\TallerIS2_T5\vacationst5\src\main\java\Clases\Pedido.java">
+<violation beginline="6" endline="96" begincolumn="8" endcolumn="1" rule="DataClass" ruleset="Design" package="Clases" class="Pedido" externalInfoUrl="https://pmd.github.io/pmd-6.21.0/pmd_rules_java_design.html#dataclass" priority="3">
+The class 'Pedido' is suspected to be a Data Class (WOC=10.000%, NOPA=0, NOAM=8, WMC=16)
+</violation>
+</file>
+<file name="C:\Users\LENOVO\Downloads\TallerIS2_T5\vacationst5\src\main\java\vacationst5\Main.java">
+<violation beginline="23" endline="23" begincolumn="29" endcolumn="58" rule="UseDiamondOperator" ruleset="Code Style" package="vacationst5" class="Main" method="Main" externalInfoUrl="https://pmd.github.io/pmd-6.21.0/pmd_rules_java_codestyle.html#usediamondoperator" priority="3">
+Explicit type arguments can be replaced by Diamond Operator
+</violation>
+<violation beginline="77" endline="77" begincolumn="16" endcolumn="24" rule="AvoidCatchingGenericException" ruleset="Design" package="vacationst5" class="Main" method="menuPrincipal" externalInfoUrl="https://pmd.github.io/pmd-6.21.0/pmd_rules_java_design.html#avoidcatchinggenericexception" priority="3">
+Avoid catching generic exceptions such as NullPointerException, RuntimeException, Exception in try-catch block
+</violation>
+<violation beginline="89" endline="89" begincolumn="13" endcolumn="17" rule="UnusedLocalVariable" ruleset="Best Practices" package="vacationst5" class="Main" method="menuViajes" variable="total" externalInfoUrl="https://pmd.github.io/pmd-6.21.0/pmd_rules_java_bestpractices.html#unusedlocalvariable" priority="3">
+Avoid unused local variables such as 'total'.
+</violation>
+<violation beginline="139" endline="139" begincolumn="17" endcolumn="25" rule="AvoidCatchingGenericException" ruleset="Design" package="vacationst5" class="Main" method="menuViajes" externalInfoUrl="https://pmd.github.io/pmd-6.21.0/pmd_rules_java_design.html#avoidcatchinggenericexception" priority="3">
+Avoid catching generic exceptions such as NullPointerException, RuntimeException, Exception in try-catch block
+</violation>
+<violation beginline="156" endline="156" begincolumn="13" endcolumn="25" rule="OnlyOneReturn" ruleset="Code Style" package="vacationst5" class="Main" method="validarPasajeros" externalInfoUrl="https://pmd.github.io/pmd-6.21.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+A method should have only one exit point, and that should be the last statement in the method
+</violation>
+</file>
+</pmd>
