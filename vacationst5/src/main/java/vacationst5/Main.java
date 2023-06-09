@@ -5,11 +5,10 @@ package vacationst5;
 
 import Clases.*;
 import java.util.*;
-import java.io.IOException;
 public class Main {
 	
-    private ArrayList<CiudadPopular> ciudadesPopulares;
     private ArrayList<String> packages;
+    private Map<String,Integer> ciudadesPopulares = new HashMap<>();
 	
 	
     /**
@@ -17,28 +16,18 @@ public class Main {
      */
     public Main() {
 		
-        CiudadPopular paris = new CiudadPopular("Paris", 500);
-        CiudadPopular newYork = new CiudadPopular("New York City", 600);
-        CiudadPopular tokyo = new CiudadPopular("Tokyo", 500);
-        CiudadPopular barcelona = new CiudadPopular("Barcelona", 700);
-        ciudadesPopulares = new ArrayList<CiudadPopular>();
-        ciudadesPopulares.add(newYork);
-        ciudadesPopulares.add(paris);
-        ciudadesPopulares.add(tokyo);
-        ciudadesPopulares.add(barcelona);
-        packages = new ArrayList<String>();
+        ciudadesPopulares.put("Paris", 500);
+        ciudadesPopulares.put("New York City", 600);
+        ciudadesPopulares.put("Tokyo", 500);
+        ciudadesPopulares.put("Barcelona", 700);
+        
+        packages = new ArrayList<>();
         packages.add("All Inclusive Package");
         packages.add("Adventure Activities Package");
         packages.add("Spa and Wellness Package");
         
     }
 	
-    /**
-     * @return lista de ciudades populares
-     */
-    public ArrayList<CiudadPopular> getCiudadesPopulares() {
-        return ciudadesPopulares;
-    }
 	
 
 //CHECKSTYLE:OFF
@@ -80,7 +69,7 @@ public class Main {
 			
             } while (!(ingreso == 2));
             sc.close();
-        }catch(Exception ex){
+        }catch(InputMismatchException ex){
             System.out.println("Entrada invalida!");
             System.out.println("Elija una de las opciones:");
             menuPrincipal();
@@ -153,22 +142,28 @@ public class Main {
 		
 		
             if (confirmacion.equals("S")) {
-                Pedido pedido = new Pedido(destino, personas, duracion);
-                if(paquete != 0) {
-                	pedido.applyPackage(paquete);
-                }
-                isPopular(pedido, pedido.getDestination()
-                		, getCiudadesPopulares());
-                pedido.applyDiscount(pedido);
-                System.out.println("Total por viaje es: " 
-                    + pedido.getTotal());
+            	if(total >= 0) {
+            		Pedido pedido = new Pedido(destino, personas, duracion);
+                    if(paquete != 0) {
+                    	pedido.applyPackage(paquete);
+                    }
+                    isPopular(pedido, pedido.getDestination()
+                    		, ciudadesPopulares);
+                    pedido.applyDiscount(pedido);
+                    System.out.println("Total por viaje es: " 
+                        + pedido.getTotal());
+            	}
+            	else {
+            		System.out.println("Total por viaje es: " 
+                            + total);
+            	}
 			
 			
             }else {
                 menuViajes();
             }
 		
-        }catch (Exception ex) {
+        }catch (InputMismatchException ex) {
             System.out.println("Error de ingreso, "
                     + "ingresar solo numeros");
             menuViajes();
@@ -184,10 +179,8 @@ public class Main {
 	 * @return es valido o no
 	 */
     private boolean validarPasajeros(int cantidad) {
-        if (cantidad > 80) {
-            return false;
-        }
-        return true;
+        return (cantidad < 80);
+
     }
 	
 	/**
@@ -196,10 +189,10 @@ public class Main {
 	 * @param ciudadesPopulares
 	 */
     public static void isPopular(Pedido pedido, String destination, 
-    		ArrayList<CiudadPopular> ciudadesPopulares){
-        for (CiudadPopular cp:ciudadesPopulares){
-            if (cp.nombre.equalsIgnoreCase(destination)){
-                pedido.setTotal(pedido.getTotal()+cp.valor);
+    		Map<String,Integer> ciudadesPopulares){
+        for (String cp:ciudadesPopulares.keySet()){
+            if (cp.equalsIgnoreCase(destination)){
+                pedido.setTotal(pedido.getTotal()+ciudadesPopulares.get(cp));
             }
         }
             

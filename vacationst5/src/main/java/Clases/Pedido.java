@@ -2,7 +2,7 @@
 // All rights reserved
 
 package Clases;
-
+@SuppressWarnings("PMD.DataClass")
 public class Pedido {
     private int numTravelers;
     private String destination;
