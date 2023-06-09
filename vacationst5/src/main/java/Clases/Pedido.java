@@ -92,5 +92,20 @@ public class Pedido {
         }
         
     }
+    
+    public void applyPackage(int option) {
+    	switch(option) {
+    		case 1:
+    			total=total+(numTravelers*200);
+    			break;
+    		case 2:
+    			total=total+(numTravelers*150);
+    			break;
+    		case 3:
+    			total=total+(numTravelers*100);
+    			break;
+    	
+    	}
+    }
 
 }

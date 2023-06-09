@@ -5,19 +5,23 @@
     <includePatterns/>
     <rules>
         <rule>
-            <name>UnusedAssignment</name>
-            <ruleset>Best Practices</ruleset>
+            <name>DataClass</name>
+            <ruleset>Design</ruleset>
         </rule>
         <rule>
             <name>OnlyOneReturn</name>
             <ruleset>Code Style</ruleset>
         </rule>
         <rule>
-            <name>UnnecessaryImport</name>
+            <name>UnusedLocalVariable</name>
+            <ruleset>Best Practices</ruleset>
+        </rule>
+        <rule>
+            <name>UseDiamondOperator</name>
             <ruleset>Code Style</ruleset>
         </rule>
         <rule>
-            <name>DataClass</name>
+            <name>AvoidCatchingGenericException</name>
             <ruleset>Design</ruleset>
         </rule>
     </rules>

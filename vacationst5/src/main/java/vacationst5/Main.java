@@ -9,6 +9,7 @@ import java.io.IOException;
 public class Main {
 	
     private ArrayList<CiudadPopular> ciudadesPopulares;
+    private ArrayList<String> packages;
 	
 	
     /**
@@ -25,6 +26,11 @@ public class Main {
         ciudadesPopulares.add(paris);
         ciudadesPopulares.add(tokyo);
         ciudadesPopulares.add(barcelona);
+        packages = new ArrayList<String>();
+        packages.add("All Inclusive Package");
+        packages.add("Adventure Activities Package");
+        packages.add("Spa and Wellness Package");
+        
     }
 	
     /**
@@ -91,6 +97,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         String destino = sc.nextLine();
         int personas=1; //default para el while
+        int paquete=0;
         try {
                 
             do {
@@ -110,11 +117,33 @@ public class Main {
                 duracion = sc.nextInt();
                 sc.nextLine();
             }while (duracion<1);
-		
-		
+
+            String confirmapaquetes = "";
+            do {
+            	System.out.println("Deseas agregar paquetes de viaje?S/N");
+            	confirmapaquetes = sc.nextLine();
+            }while (!(confirmapaquetes.equals("S") 
+                		|| confirmapaquetes.equals("N")));
+       
+            if(confirmapaquetes.equals("S")) {
+                System.out.println("1. All Inclusive Package - $200");
+                System.out.println("2. Adventure Activities Package - $150");
+                System.out.println("3. Spa and Wellness Package - $100");
+                do {
+                    System.out.println("Seleccione una opcion:");
+                    paquete = sc.nextInt();
+                    sc.nextLine();
+                    
+                }while (paquete<1 && paquete>3);
+            	
+            }
+            
             System.out.println("Entonces, viajaras a " + destino );
             System.out.println(" con " + personas+ " personas ");
             System.out.println("durante " +duracion + " dias");
+            if (paquete != 0) {
+            System.out.println("Y ha seleccionado el paquete " + packages.get(paquete-1));
+            }
             String confirmacion = "";
             do {
                 System.out.println("Desea calcular con estos datos?S/N");
@@ -125,6 +154,9 @@ public class Main {
 		
             if (confirmacion.equals("S")) {
                 Pedido pedido = new Pedido(destino, personas, duracion);
+                if(paquete != 0) {
+                	pedido.applyPackage(paquete);
+                }
                 isPopular(pedido, pedido.getDestination()
                 		, getCiudadesPopulares());
                 pedido.applyDiscount(pedido);
